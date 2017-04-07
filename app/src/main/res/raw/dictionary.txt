@@ -1,0 +1,15 @@
+kitap-book
+kalem-pencil
+top-ball
+koltuk-seat
+bilgisayar-computer
+hapis-jail
+saat-watch
+ağaç-tree
+sayı-number
+kılıç-sword
+law-hukuk
+dakika-minute
+polis-police
+telefon-phone
+dergi-magazine
