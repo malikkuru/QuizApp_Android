@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFAAAA"
+    android:background="#FFDDDD"
     tools:context="com.example.mesihmalikkuru.quizapp.MainActivity">
 
     <TextView
@@ -30,6 +30,7 @@
             android:layout_weight="1"
             android:id="@+id/learn"
             android:background="@drawable/button_learn_bg"
+            android:layout_margin="2dp"
             android:text="LEARN"
             android:textSize="36sp"
             android:textColor="@color/FloralWhite" />
@@ -39,6 +40,7 @@
             android:layout_weight="0.6"
             android:id="@+id/addItem"
             android:background="@drawable/button_add_item_bg"
+            android:layout_margin="2dp"
             android:text="ADD ITEM"
             android:textSize="32sp"
             android:textColor="@color/FloralWhite" />
@@ -50,6 +52,7 @@
         android:layout_weight="1"
         android:id="@+id/quiz"
         android:background="@drawable/button_quiz_bg"
+        android:layout_margin="2dp"
         android:text="QUIZ"
         android:textSize="65sp"
         android:textColor="#FFFF" />

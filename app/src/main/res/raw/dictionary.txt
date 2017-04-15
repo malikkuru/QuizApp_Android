@@ -8,8 +8,14 @@ saat-watch
 ağaç-tree
 sayı-number
 kılıç-sword
-law-hukuk
+hukuk-law
 dakika-minute
 polis-police
 telefon-phone
 dergi-magazine
+açı-angle
+melek-angel
+sınav-exam
+gitar-guitar
+takvim-calender
+klavye-keyboard

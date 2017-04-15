@@ -33,7 +33,7 @@ public class LearnActivity extends AppCompatActivity {
         trTextView = (TextView) findViewById(R.id.learn_turkish);
         enTextView = (TextView) findViewById(R.id.learn_english);
 
-        nextButton = (Button) findViewById(R.id.next_button);
+        nextButton = (Button) findViewById(R.id.next_learn_button);
 
         nextButton.callOnClick();
     }

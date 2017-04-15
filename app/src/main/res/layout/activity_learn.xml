@@ -4,6 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_learn"
+    android:background="#FFDDDD"
     tools:context="com.example.mesihmalikkuru.quizapp.LearnActivity">
     <TextView
         android:layout_width="match_parent"
@@ -14,30 +15,44 @@
         android:gravity="center"
         android:textSize="50sp"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/learn_english"
+        android:orientation="vertical"
         android:layout_weight="1"
-        android:gravity="center"
-        android:textSize="34sp"
-        android:background="@drawable/button_learn_bg"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/learn_turkish"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textSize="34sp"
-        android:background="@drawable/button_quiz_bg"/>
+        android:background="@drawable/question_card_bg"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/learn_english"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="34sp"
+            android:layout_margin="5dp"
+            android:background="@drawable/answer_bg" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/learn_turkish"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="34sp"
+            android:layout_margin="5dp"
+            android:background="@drawable/answer_false_bg"/>
+    </LinearLayout>
+
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:text="NEXT"
         android:textSize="39sp"
-        android:id="@+id/next_button"
-        android:background="@drawable/button_add_item_bg"
+        android:layout_margin="5dp"
+        android:id="@+id/next_learn_button"
+        android:background="@drawable/answer_true_bg"
         android:onClick="nextButtonClicked"/>
 
 </LinearLayout>
