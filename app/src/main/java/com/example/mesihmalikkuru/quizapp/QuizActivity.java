@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Thread.sleep;
+
 /**
  * Created by mesihmalikkuru on 07/04/2017.
  */
@@ -33,12 +35,15 @@ public class QuizActivity extends AppCompatActivity {
     String question;
 
     ArrayList<String> wrongAnswers;
+    ArrayList<Integer> willAskQuestionNumbers;
 
     int choice;
 
     float point;
 
     Button trueButton;
+
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +63,12 @@ public class QuizActivity extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.next_quiz_button);
 
         wrongAnswers = new ArrayList<String>();
+        willAskQuestionNumbers = new ArrayList<Integer>();
 
         point = 0f;
 
+
+        fillWillAskQuestionNumbers();
 
         newQuestion();
 
@@ -71,8 +79,12 @@ public class QuizActivity extends AppCompatActivity {
 
         nextButton.setVisibility(View.INVISIBLE);
 
-        Random random = new Random();
-        int n = random.nextInt(MainActivity.dictionary.size());
+        int r = random.nextInt(willAskQuestionNumbers.size());
+        int n = willAskQuestionNumbers.get(r);
+
+        willAskQuestionNumbers.remove(willAskQuestionNumbers.get(r));
+
+
 
         answer = (String) keys[n];
         question = (String) values[n];
@@ -91,11 +103,25 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
 
+        if(willAskQuestionNumbers.size() == 0) {
+            if(point < 0) {
+                Intent intent = new Intent(this, LearnActivity.class);
+                this.startActivity(intent);
+                finish();
+            }
+            fillWillAskQuestionNumbers();
+        }
+
         setButtons();
     }
 
+    private void fillWillAskQuestionNumbers() {
+        for (int i = 0; i < MainActivity.dictionary.size(); i++) {
+            willAskQuestionNumbers.add(i);
+        }
+    }
+
     private void setButtons() {
-        Random random = new Random();
         choice = random.nextInt(4);
 
         switch (choice){

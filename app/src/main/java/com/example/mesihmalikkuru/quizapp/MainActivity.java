@@ -1,6 +1,8 @@
 package com.example.mesihmalikkuru.quizapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,6 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnAddItem;
     private Button btnQuiz;
 
+    public SharedPreferences sharedPreferences;
+    public Map<String, ?> sharedPreferencesAll;
+    Object[] keysSharedPreferences;
+    Object[] valuesSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +41,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnQuiz.setOnClickListener(this);
 
         dictionary = new HashMap<String, String>();
+
+        sharedPreferences = getSharedPreferences("dict", Context.MODE_PRIVATE);
+        sharedPreferencesAll = sharedPreferences.getAll();
+        keysSharedPreferences = sharedPreferencesAll.keySet().toArray();
+        valuesSharedPreferences = sharedPreferencesAll.values().toArray();
+
         readAll();
+        readSharedPreferences();
+
     }
 
 
@@ -45,8 +61,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String[] word = line.split("-");
             dictionary.put(word[0], word[1]);
         }
-        Toast.makeText(this, "sdfa", Toast.LENGTH_SHORT);
         s.close();
+
+
+
+    }
+
+    public void readSharedPreferences() {
+        for(int i = 0; i < sharedPreferencesAll.size(); i++) {
+            dictionary.put((String) keysSharedPreferences[i], (String) valuesSharedPreferences[i]);
+        }
     }
 
     @Override
@@ -71,7 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         if(intent != null)
-            intent.putExtra("dictionary", dictionary);
             this.startActivity(intent);
 
         /*
