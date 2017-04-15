@@ -8,24 +8,83 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="QUIZ APP!"
-        android:background="@color/Khaki"
-        android:textColor="@color/Indigo"
+        android:text="QUIZ APP"
+        android:background="#AA3939"
+        android:textColor="#FFFFFF"
         android:gravity="center"
-        android:textSize="50dp" />
+        android:textSize="50sp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="ADD ITEM"
-        android:paddingTop="40dp"
-        android:textSize="30dp"
-        android:textColor="@color/Blue"/>
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@drawable/button_add_item_bg"
+        android:textSize="40sp"
+        android:textColor="#FFFFFF"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/button_quiz_bg"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="TURKISH"
+            android:textSize="35sp"/>
 
+    </LinearLayout>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Word"
-        android:textColor="@color/Black"/>
+        android:gravity="center"
+        android:text="Write Here"
+        android:textSize="25sp"
+        android:textColor="#AA3939"
+        android:layout_weight="0.2"
+        android:id="@+id/turkish_word"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/button_quiz_bg"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="ENGLISH"
+            android:textSize="35sp"/>
+
+    </LinearLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Write Here"
+        android:textSize="25sp"
+        android:textColor="#AA3939"
+        android:layout_weight="0.2"
+        android:id="@+id/english_word"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="SAVE!"
+        android:textSize="40sp"
+        android:background="@drawable/button_learn_bg"
+        android:onClick="saveWords"
+        android:id="@+id/save"/>
+
+
 </LinearLayout>

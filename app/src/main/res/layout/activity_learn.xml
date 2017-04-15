@@ -8,10 +8,36 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="QUIZ APP!"
-        android:background="@color/Khaki"
-        android:textColor="@color/Indigo"
+        android:text="QUIZ APP"
+        android:background="#AA3939"
+        android:textColor="#FFFFFF"
         android:gravity="center"
-        android:textSize="50dp" />
+        android:textSize="50sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/learn_english"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="34sp"
+        android:background="@drawable/button_learn_bg"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/learn_turkish"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="34sp"
+        android:background="@drawable/button_quiz_bg"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="NEXT"
+        android:textSize="39sp"
+        android:id="@+id/next_button"
+        android:background="@drawable/button_add_item_bg"
+        android:onClick="nextButtonClicked"/>
 
 </LinearLayout>

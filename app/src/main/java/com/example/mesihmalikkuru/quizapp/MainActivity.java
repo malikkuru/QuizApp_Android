@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private HashMap<String, String> dictionary;
+    public static HashMap<String, String> dictionary;
 
     private Button btnLearn;
     private Button btnAddItem;
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         if(intent != null)
+            intent.putExtra("dictionary", dictionary);
             this.startActivity(intent);
 
         /*
