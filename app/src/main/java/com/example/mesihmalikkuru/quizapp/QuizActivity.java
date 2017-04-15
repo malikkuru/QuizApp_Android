@@ -172,6 +172,11 @@ public class QuizActivity extends AppCompatActivity {
 
         }
 
+        answerButtonA.setClickable(false);
+        answerButtonB.setClickable(false);
+        answerButtonC.setClickable(false);
+        answerButtonD.setClickable(false);
+
         point_text.setText("POINT : " + point);
         trueButton.setBackground(getResources().getDrawable(R.drawable.answer_true_bg));
 
@@ -183,6 +188,12 @@ public class QuizActivity extends AppCompatActivity {
         answerButtonB.setBackground(getResources().getDrawable(R.drawable.answer_bg));
         answerButtonC.setBackground(getResources().getDrawable(R.drawable.answer_bg));
         answerButtonD.setBackground(getResources().getDrawable(R.drawable.answer_bg));
+
+        answerButtonA.setClickable(true);
+        answerButtonB.setClickable(true);
+        answerButtonC.setClickable(true);
+        answerButtonD.setClickable(true);
+
         newQuestion();
     }
 
