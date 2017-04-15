@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -31,7 +32,7 @@ public class QuizActivity extends AppCompatActivity {
     String answer;
     String question;
 
-    String[] wrongAnswers;
+    ArrayList<String> wrongAnswers;
 
     int choice;
 
@@ -56,6 +57,8 @@ public class QuizActivity extends AppCompatActivity {
         point_text = (TextView) findViewById(R.id.point);
         nextButton = (Button) findViewById(R.id.next_quiz_button);
 
+        wrongAnswers = new ArrayList<String>();
+
         point = 0f;
 
 
@@ -76,13 +79,13 @@ public class QuizActivity extends AppCompatActivity {
 
         question_text.setText(question.toUpperCase());
 
-        wrongAnswers = new String[3];
+        wrongAnswers.clear();
 
         for (int i = 0; i < 3; i++) {
             int wa = random.nextInt(MainActivity.dictionary.size());
 
-            if (wa != n) {
-                wrongAnswers[i] = (String) keys[wa];
+            if (wa != n && !wrongAnswers.contains((String) keys[wa])) {
+                wrongAnswers.add((String) keys[wa]);
             } else {
                 i--;
             }
@@ -98,30 +101,30 @@ public class QuizActivity extends AppCompatActivity {
         switch (choice){
             case 0:
                 answerButtonA.setText(answer);
-                answerButtonB.setText(wrongAnswers[0]);
-                answerButtonC.setText(wrongAnswers[1]);
-                answerButtonD.setText(wrongAnswers[2]);
+                answerButtonB.setText(wrongAnswers.get(0));
+                answerButtonC.setText(wrongAnswers.get(1));
+                answerButtonD.setText(wrongAnswers.get(2));
                 trueButton = answerButtonA;
                 break;
             case 1:
                 answerButtonB.setText(answer);
-                answerButtonA.setText(wrongAnswers[0]);
-                answerButtonC.setText(wrongAnswers[1]);
-                answerButtonD.setText(wrongAnswers[2]);
+                answerButtonA.setText(wrongAnswers.get(0));
+                answerButtonC.setText(wrongAnswers.get(1));
+                answerButtonD.setText(wrongAnswers.get(2));
                 trueButton = answerButtonB;
                 break;
             case 2:
                 answerButtonC.setText(answer);
-                answerButtonB.setText(wrongAnswers[0]);
-                answerButtonA.setText(wrongAnswers[1]);
-                answerButtonD.setText(wrongAnswers[2]);
+                answerButtonB.setText(wrongAnswers.get(0));
+                answerButtonA.setText(wrongAnswers.get(1));
+                answerButtonD.setText(wrongAnswers.get(2));
                 trueButton = answerButtonC;
                 break;
             case 3:
                 answerButtonD.setText(answer);
-                answerButtonB.setText(wrongAnswers[0]);
-                answerButtonC.setText(wrongAnswers[1]);
-                answerButtonA.setText(wrongAnswers[2]);
+                answerButtonB.setText(wrongAnswers.get(0));
+                answerButtonC.setText(wrongAnswers.get(1));
+                answerButtonA.setText(wrongAnswers.get(2));
                 trueButton = answerButtonD;
                 break;
         }
