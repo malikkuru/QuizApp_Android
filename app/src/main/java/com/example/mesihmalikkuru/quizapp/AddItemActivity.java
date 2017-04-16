@@ -58,6 +58,11 @@ public class AddItemActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        if (tr.getText().toString().equals("") || en.getText().toString().equals("")) {
+            Toast.makeText(this, "PLEASE FILL ALL BLANKS", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         editor.putString(tr.getText().toString(), en.getText().toString());
 
         editor.commit();
