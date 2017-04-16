@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Map<String, ?> sharedPreferencesAll;
     Object[] keysSharedPreferences;
     Object[] valuesSharedPreferences;
+
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
     public void readAll() {
         Scanner s = new Scanner(getResources().openRawResource(R.raw.dictionary));
         while (s.hasNext()) {
@@ -62,9 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             dictionary.put(word[0], word[1]);
         }
         s.close();
-
-
-
     }
 
     public void readSharedPreferences() {
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        v.startAnimation(buttonClick);
         Intent intent = null;
         switch(v.getId()){
             case R.id.learn:
@@ -97,16 +95,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(intent != null)
             this.startActivity(intent);
 
-        /*
-        Toast.makeText(this, "aaaaaa", Toast.LENGTH_SHORT);
-        if (v.equals(btnLearn)) {
-            Toast.makeText(this, "LEARN", Toast.LENGTH_SHORT);
-        }
-        else if (v.equals(btnAddItem)) {
-            Toast.makeText(this, "ADD ITEM", Toast.LENGTH_SHORT);
-        }
-        else if (v.equals(btnQuiz)) {
-            Toast.makeText(this, "QUIZ", Toast.LENGTH_SHORT);
-        }*/
     }
 }

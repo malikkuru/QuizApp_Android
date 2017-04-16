@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.ArrayList;
 import java.util.Random;
-
-import static java.lang.Thread.sleep;
 
 /**
  * Created by mesihmalikkuru on 07/04/2017.
@@ -45,12 +46,13 @@ public class QuizActivity extends AppCompatActivity {
 
     Random random = new Random();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        Intent intent = getIntent();
 
+        Intent intent = getIntent();
 
         question_text = (TextView) findViewById(R.id.question);
 
@@ -67,12 +69,9 @@ public class QuizActivity extends AppCompatActivity {
 
         point = 0f;
 
-
         fillWillAskQuestionNumbers();
 
         newQuestion();
-
-
     }
 
     public void newQuestion() {
@@ -83,8 +82,6 @@ public class QuizActivity extends AppCompatActivity {
         int n = willAskQuestionNumbers.get(r);
 
         willAskQuestionNumbers.remove(willAskQuestionNumbers.get(r));
-
-
 
         answer = (String) keys[n];
         question = (String) values[n];
@@ -113,6 +110,8 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         setButtons();
+
+        YoYo.with(Techniques.SlideInRight).duration(1000).repeat(1).playOn(findViewById(R.id.quiz_card));
     }
 
     private void fillWillAskQuestionNumbers() {
@@ -157,10 +156,8 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void buttonClicked(View v) {
-        Log.i("button", "buton2");
         switch(v.getId()){
             case R.id.answer_button_a:
-                Log.i("button", "buttonclicked2");
                 if (answerButtonA.equals(trueButton)){
                     answerButtonA.setBackground(getResources().getDrawable(R.drawable.answer_true_bg));
                     point += 1;
@@ -213,6 +210,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void nextButtonClicked(View v) {
+
         answerButtonA.setBackground(getResources().getDrawable(R.drawable.answer_bg));
         answerButtonB.setBackground(getResources().getDrawable(R.drawable.answer_bg));
         answerButtonC.setBackground(getResources().getDrawable(R.drawable.answer_bg));

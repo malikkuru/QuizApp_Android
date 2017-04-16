@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,6 +32,8 @@ public class AddItemActivity extends AppCompatActivity {
 
     public SharedPreferences sharedPreferences;
 
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +47,14 @@ public class AddItemActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("dict", Context.MODE_PRIVATE);
     }
 
-
     private void addToList(String turkish, String english) {
 
         MainActivity.dictionary.put(turkish, english);
-
     }
 
-    public void saveWords(View V){
+    public void saveWords(View v){
+
+        v.startAnimation(buttonClick);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -63,6 +66,4 @@ public class AddItemActivity extends AppCompatActivity {
         tr.setText("");
         en.setText("");
     }
-
-
 }

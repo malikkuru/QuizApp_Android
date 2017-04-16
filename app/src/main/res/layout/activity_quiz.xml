@@ -20,7 +20,8 @@
         android:layout_margin="10dp"
         android:layout_weight="0.2"
         android:background="@drawable/question_card_bg"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/quiz_card">
 
         <TextView
             android:layout_width="match_parent"
@@ -30,7 +31,7 @@
             android:textColor="#000000"
             android:gravity="center"
             android:id="@+id/question"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,6 +72,7 @@
             android:layout_margin="5dp"
             android:onClick="buttonClicked"
             android:id="@+id/answer_button_d"/>
+
     </LinearLayout>
 
 
@@ -94,7 +96,6 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:background="@drawable/answer_true_bg"
-            android:layout_gravity="bottom|left"
             android:text="NEXT"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
